@@ -1,5 +1,7 @@
 import Card from "./Card"
 import img from "./assets/card-girl.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 function Home(){
     return(
@@ -28,11 +30,16 @@ function Home(){
                 <Card img={img}/>
                 <Card img={img}/>
                 <Card img={img}/>
-                <Card img={img}/>
-                <Card img={img}/>
-                <Card img={img}/>
-                <Card img={img}/>
             </div>
+
+            <footer>
+                <div className="credits">
+                    <p>Made by Airbone25</p>
+                </div>
+                <div className="icons">
+                    <a href="#"><FontAwesomeIcon icon={faGithub} style={{height: "30px"}}/></a>
+                </div>
+            </footer>
         </div>
     )
 }

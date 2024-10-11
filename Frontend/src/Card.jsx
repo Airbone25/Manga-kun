@@ -5,7 +5,6 @@ function Card({img}){
             <div className="card-img">
                 <img src={img} alt="cardimg" />
             </div>
-            <h5>Manga</h5>
         </div>
     )
 }

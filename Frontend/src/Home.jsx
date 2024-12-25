@@ -1,9 +1,23 @@
 import Card from "./Card"
-import img from "./assets/card-girl.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useEffect, useState } from 'react'
 
 function Home(){
+
+    const [manga, setManga] = useState()
+
+    useEffect(()=>{getMangas()},[])
+
+    async function getMangas(){
+        const res = await fetch('http://localhost:3000/api')
+        if(!res.ok){
+            throw new Error('Failed to fetch mangas')
+        }
+        const data = await res.json()
+        setManga(data)
+    }
+
     return(
         <div className="home">
             <div className="image-container">
@@ -25,11 +39,8 @@ function Home(){
 
             <h2 id="heading-popular-mangas">Popular Mangas</h2>
             <div className="popular-mangas">
-                <Card img={img}/>
-                <Card img={img}/>
-                <Card img={img}/>
-                <Card img={img}/>
-                <Card img={img}/>
+                {manga && manga.map((manga,index)=><Card key={index} img={`http://localhost:3000/${manga.cover}`}/>)}
+                
             </div>
 
             <footer>

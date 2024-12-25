@@ -1,26 +1,71 @@
+import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Create(){
+
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [manga, setManga] = useState('')
+    const [cover, setCover] = useState('')
+    const [license, setLicense] = useState(false)
+
+    const navigate = useNavigate()
+
+    function handleSubmit(e){
+        e.preventDefault()
+        const newManga = new FormData()
+        newManga.append('title',title)
+        newManga.append('description',description)
+        newManga.append('manga',manga)
+        newManga.append('cover',cover)
+        newManga.append('license',license)
+        postManga(newManga)
+        alert('Manga added successfully!!')
+        setTitle('')
+        setDescription('')
+        setManga('')
+        setCover('')
+        setLicense(false)
+    }
+
+    async function postManga(newManga){
+        try{
+            const res = await fetch('http://localhost:3000/api',{
+                method: 'POST',
+                body: newManga
+            })
+            if(!res.ok){
+                throw new Error('Failed to post manga')
+            }
+            const data = await res.json()
+            alert(data.message)
+            navigate('/')
+        }catch(error){
+            console.error(error)
+        }
+    }
+
     return(
         <div className="create-manga-page">
             <div className="create_manga">
                 <h2>Create New Manga</h2>
                 <p>To publish your work, you need to have the rights to the content and you agree to the Terms of Service.</p>
 
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h4 id="title-tag">Title</h4>
-                    <input type="text" id="title" name="title" placeholder="Enter a title" autoComplete="off"/>
+                    <input type="text" id="title" name="title" placeholder="Enter a title" value={title} onChange={e=>setTitle(e.target.value)} autoComplete="off" required/>
 
                     <h4 id="des-tag">Description</h4>
-                    <textarea name="description" id="description" placeholder="Enter description"></textarea>
+                    <textarea name="description" id="description" value={description} onChange={e=>setDescription(e.target.value)} placeholder="Enter description" required></textarea>
 
                     <h4 id="manga-tag">Add Manga: </h4>
-                    <input type="url" name="manga" id="manga" placeholder="Paste PDF url" autoComplete="off"/>
+                    <input type="file" name="manga" id="manga" placeholder="Paste PDF url" accept='.pdf' onChange={e=>setManga(e.target.files[0])} autoComplete="off" required/>
 
                     <h4 id="manga-cover-tag">Upload Cover: </h4>
-                    <input type="file" name="cover" id="cover" accept="image/*"/>
+                    <input type="file" name="cover" id="cover" accept="image/*" onChange={e=>setCover(e.target.files[0])} required/>
 
                     <label id="lic-label">
-                        <input type="checkbox" name="license" id="license" required/>
+                        <input type="checkbox" name="license" id="license" checked={license} onChange={e=>setLicense(e.target.checked)} required/>
                         <h4 id="lic-tag">I have the rights to publish this content.</h4>
                     </label>
 

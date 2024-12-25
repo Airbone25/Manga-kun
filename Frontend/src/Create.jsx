@@ -8,22 +8,24 @@ function Create(){
 
                 <form>
                     <h4 id="title-tag">Title</h4>
-                    <input type="text" id="title" name="title" placeholder="Enter a title"/>
+                    <input type="text" id="title" name="title" placeholder="Enter a title" autoComplete="off"/>
 
                     <h4 id="des-tag">Description</h4>
                     <textarea name="description" id="description" placeholder="Enter description"></textarea>
 
                     <h4 id="manga-tag">Add Manga: </h4>
-                    <input type="url" name="manga" id="manga" placeholder="Paste PDF url"/>
+                    <input type="url" name="manga" id="manga" placeholder="Paste PDF url" autoComplete="off"/>
+
+                    <h4 id="manga-cover-tag">Upload Cover: </h4>
+                    <input type="file" name="cover" id="cover" accept="image/*"/>
 
                     <label id="lic-label">
-                        <input type="checkbox" name="license" id="license" />
+                        <input type="checkbox" name="license" id="license" required/>
                         <h4 id="lic-tag">I have the rights to publish this content.</h4>
                     </label>
 
                     <input type="submit" value="Add Manga" id="submit"/>
                     <a href="/" id="cancel-manga">Cancel</a>
-                    
                 </form>
             </div>
         </div>

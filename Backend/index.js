@@ -5,7 +5,11 @@ const multer = require('multer')
 
 const app = express()
 
-app.use(cors())
+app.use(cors(
+    {
+        origin: 'http://localhost:5173'
+    }
+))
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
@@ -32,6 +36,12 @@ let db = []
 
 app.get('/api',(req,res)=>{
     res.json(db)
+})
+
+app.get('/api/:id',(req,res)=>{
+    const id = req.params.id
+    const manga = db[id]
+    res.json(manga)
 })
 
 app.post('/api',upload.fields([{name: 'manga',maxCount: 1},{name: 'cover',maxCount: 1}]),(req,res)=>{

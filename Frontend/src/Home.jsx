@@ -2,6 +2,7 @@ import Card from "./Card"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useEffect, useState } from 'react'
+import { Link } from "react-router-dom"
 
 function Home(){
 
@@ -29,21 +30,22 @@ function Home(){
             <div className="whatandwhy">
                 <div className="what">
                     <h1>What is Manga-kun?</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam repellendus rem quod in. Qui consequatur aperiam officia quibusdam odit sapiente, cum voluptatibus obcaecati, perspiciatis in, id eius quisquam saepe amet?</p>
+                    <p>Manga-kun is a platform designed for manga enthusiasts to explore, read, and even create their own manga. Whether you're a seasoned fan or new to the world of manga, Manga-kun offers a space to dive into a vast library of stories, showcase your creativity, and connect with a community that shares your passion.</p>
                 </div>
                 <div className="why">
                     <h1>Why Manga-kun?</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure pariatur doloremque consequuntur enim ipsa repudiandae cumque soluta provident! Facere sunt quo beatae corporis dolorum velit perferendis esse repellendus voluptas rem.</p>
+                    <p>At Manga-kun, we believe in empowering creators and entertaining readers. Our platform stands out because it combines a user-friendly interface, diverse content, and tools to bring your imagination to life. With Manga-kun, you can not only enjoy top-rated mangas but also transform your ideas into reality, making it the ultimate hub for manga lovers.</p>
                 </div>
             </div>
 
             <h2 id="heading-popular-mangas">Popular Mangas</h2>
             <div className="popular-mangas">
-                {manga && manga.map((manga,index)=><Card key={index} img={`http://localhost:3000/${manga.cover}`}/>)}
+                {manga && manga.map((manga,index)=><Link to={`/${index}`}><Card key={index} img={`http://localhost:3000/${manga.cover}`}/></Link>)}
                 
             </div>
 
             <footer>
+                <div className="footer-divider"></div>
                 <div className="credits">
                     <p>Made by Airbone25</p>
                 </div>

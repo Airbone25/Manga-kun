@@ -1,7 +1,7 @@
 
-function Card({img}){
+function Card({img,key}){
     return(
-        <div className="card">
+        <div key={key} className="card">
             <div className="card-img">
                 <img src={img} alt="anime" />
             </div>

@@ -20,7 +20,6 @@ function Create(){
         newManga.append('cover',cover)
         newManga.append('license',license)
         postManga(newManga)
-        alert('Manga added successfully!!')
         setTitle('')
         setDescription('')
         setManga('')
@@ -37,8 +36,6 @@ function Create(){
             if(!res.ok){
                 throw new Error('Failed to post manga')
             }
-            const data = await res.json()
-            alert(data.message)
             navigate('/')
         }catch(error){
             console.error(error)

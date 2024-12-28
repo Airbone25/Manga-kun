@@ -5,6 +5,7 @@ function Create(){
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [author, setAuthor] = useState('')
     const [manga, setManga] = useState('')
     const [cover, setCover] = useState('')
     const [license, setLicense] = useState(false)
@@ -16,12 +17,14 @@ function Create(){
         const newManga = new FormData()
         newManga.append('title',title)
         newManga.append('description',description)
+        newManga.append('author',author)
         newManga.append('manga',manga)
         newManga.append('cover',cover)
         newManga.append('license',license)
         postManga(newManga)
         setTitle('')
         setDescription('')
+        setAuthor('')
         setManga('')
         setCover('')
         setLicense(false)
@@ -54,6 +57,9 @@ function Create(){
 
                     <h4 id="des-tag">Description</h4>
                     <textarea name="description" id="description" value={description} onChange={e=>setDescription(e.target.value)} placeholder="Enter description" required></textarea>
+
+                    <h4 id="title-tag">Author's Name: </h4>
+                    <input type="text" id="title" name="author" placeholder="Enter author's name" value={author} onChange={e=>setAuthor(e.target.value)} autoComplete="off" required/>
 
                     <h4 id="manga-tag">Add Manga: </h4>
                     <input type="file" name="manga" id="manga" placeholder="Paste PDF url" accept='.pdf' onChange={e=>setManga(e.target.files[0])} autoComplete="off" required/>

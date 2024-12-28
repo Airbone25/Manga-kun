@@ -21,7 +21,7 @@ function SearchBar(){
         <div>
             <input type="search" name="search" id="search" placeholder="Search Manga" value={query} onChange={(e)=>handleSearch(e.target.value)} autoComplete="off"/>
             <ul className="search-list">
-                {result && result.map((manga,index)=><li key={index}><Link style={{"textDecoration": "none","color": "black"}} to={`/${index}`}>{manga.title}</Link></li>)}
+                {result && result.map((manga,index)=><li key={index}><Link style={{"textDecoration": "none","color": "black"}} to={`/${manga._id}`}>{manga.title}</Link></li>)}
             </ul>
         </div>
     )

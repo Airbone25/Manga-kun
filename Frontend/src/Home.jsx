@@ -40,7 +40,7 @@ function Home(){
 
             <h2 id="heading-popular-mangas">Popular Mangas</h2>
             <div className="popular-mangas">
-                {manga && manga.map((manga,index)=><Link to={`/${index}`}><Card key={index} img={`http://localhost:3000/${manga.cover}`}/></Link>)}
+                {manga && manga.map((manga,index)=><Link to={`/${manga._id}`}><Card key={index} img={`http://localhost:3000/${manga.cover}`}/></Link>)}
                 
             </div>
 

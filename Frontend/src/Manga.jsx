@@ -32,10 +32,10 @@ export default function Manga() {
                         <h3>Description</h3>
                         <p>{manga.description}</p>
                     </div>
-                    {/* <div className="manga-author">
+                    <div className="manga-author">
                         <h3>Author</h3>
-                        <p>Author Name</p>
-                    </div> */}
+                        <p>{manga.author}</p>
+                    </div>
                     <div className="manga-content">
                         <h3>Book: </h3>
                         <a target="_blank" href={`http://localhost:3000/${manga.manga}`}>{manga.title}</a>

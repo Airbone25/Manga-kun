@@ -10,7 +10,8 @@ function NavBar(){
             <div className="links">
                 <SearchBar/>
                 <Link style={{"textDecoration": "none"}} to={'/create'}><p id="create">New Manga</p></Link>
-                <Link style={{"textDecoration":"none"}} to={'/signin'}><p>Sign In</p></Link>
+                <Link style={{"textDecoration":"none"}} to={'/login'}><p>Log In</p></Link>
+                <Link style={{"textDecoration":"none"}} to={'/signup'}><p>Sign Up</p></Link>
             </div>
         </div>
     )

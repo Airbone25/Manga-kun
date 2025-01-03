@@ -1,6 +1,4 @@
 import Card from "./Card"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 
@@ -38,21 +36,11 @@ function Home(){
                 </div>
             </div>
 
-            <h2 id="heading-popular-mangas">Popular Mangas</h2>
+            <h2 id="heading-popular-mangas">Recently Uploaded</h2>
             <div className="popular-mangas">
                 {manga && manga.map((manga,index)=><Link to={`/${manga._id}`}><Card key={index} img={`http://localhost:3000/${manga.cover}`}/></Link>)}
                 
             </div>
-
-            <footer>
-                <div className="footer-divider"></div>
-                <div className="credits">
-                    <p>Made by Airbone25</p>
-                </div>
-                <div className="icons">
-                    <a href="#"><FontAwesomeIcon icon={faGithub} style={{height: "30px"}}/></a>
-                </div>
-            </footer>
         </div>
     )
 }

@@ -23,9 +23,13 @@ db.on('error',(error)=>console.log(error.message))
 db.once('open',()=>console.log('Database is connected!!'))
 
 //routes
+const authRouter = require('./routes/auth')
+app.use('/auth',authRouter)
+
 const mangaRouter = require('./routes/api')
 app.use('/api',mangaRouter)
 
+//Server
 app.listen(process.env.PORT || 3000,()=>{
     console.log('Server is running!!')
 })

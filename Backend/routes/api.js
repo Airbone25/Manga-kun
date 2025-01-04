@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Manga = require('../models/Manga')
 const multer = require('multer')
+const requireAuth = require('../middlewares/requireAuth')
 
 const storage = multer.diskStorage({
     destination: (req,res,cb)=>{
@@ -32,14 +33,15 @@ router.get('/:id',async (req,res)=>{
     }
 })
 
-router.post('/',upload.fields([{name: 'manga',maxCount: 1},{name: 'cover',maxCount: 1}]),async (req,res)=>{
+router.post('/',requireAuth,upload.fields([{name: 'manga',maxCount: 1},{name: 'cover',maxCount: 1}]),async (req,res)=>{
         const manga = new Manga({
             title: req.body.title,
             description: req.body.description,
             author: req.body.author,
             manga: req.files['manga'][0].filename,
             cover: req.files['cover'][0].filename,
-            license: req.body.license
+            license: req.body.license,
+            userId: req.user.id
         })
     try{
         const newManga = await manga.save()

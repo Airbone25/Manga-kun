@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { LoginContext } from './contexts/LoginContext'
 
 function Create(){
 
@@ -12,8 +13,14 @@ function Create(){
 
     const navigate = useNavigate()
 
+    const context = useContext(LoginContext)
+
     function handleSubmit(e){
         e.preventDefault()
+        if(context.user == null){
+            navigate('/')
+            return
+        }
         const newManga = new FormData()
         newManga.append('title',title)
         newManga.append('description',description)
@@ -34,6 +41,9 @@ function Create(){
         try{
             const res = await fetch('http://localhost:3000/api',{
                 method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${context.user.token}`
+                },
                 body: newManga
             })
             if(!res.ok){

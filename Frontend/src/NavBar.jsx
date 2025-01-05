@@ -20,6 +20,7 @@ function NavBar(){
             <div className="links">
                 <SearchBar/>
                 {context.user && <Link style={{"textDecoration": "none"}} to={'/create'}><p id="create">New Manga</p></Link>}
+                {context.user && <Link style={{"textDecoration": "none"}} to={'/profile'}><p id="profile-link">Your Profile</p></Link>}
                 {context.user && <p style={{'cursor': 'pointer'}} onClick={logout}>Logout</p>}
                 {!context.user && <Link style={{"textDecoration":"none"}} to={'/login'}><p>Log In</p></Link>}
                 {!context.user && <Link style={{"textDecoration":"none"}} to={'/signup'}><p>Sign Up</p></Link>}

@@ -58,6 +58,18 @@
     margin-left: 7px;
 }
 
+.links #profile-link{
+    background-color: white;
+    font-weight: lighter;
+    cursor: pointer;
+
+}
+
+.links #profile-link:hover{
+    color: rgb(242,13,51);
+    
+}
+
 .links{
     height: 40px;
     width: 712px;
@@ -517,4 +529,68 @@ footer{
     background-color: rgb(255,0,0,0.5);
     padding: 10px;
     margin-top: 30px;
+}
+
+/* User Profile */
+.profile-container{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+.profile-container #username-tag{
+    font-size: 100px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.322);
+    text-align: center;
+}
+
+.personal-details{
+    padding: 20px;
+}
+
+.personal-details h3{
+    font-size: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.322);
+}
+
+.personal-details p{
+    padding: 15px;
+    font-size: x-large;
+}
+
+.uploads{
+    padding: 20px;
+    border-top: 2px solid rgba(0, 0, 0, 0.322);
+}
+
+.uploads h3{
+    font-size: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.322);
+    padding-bottom: 10px;
+}
+
+.upload{
+    padding: 20px;
+}
+
+.upload h4{
+    padding: 15px;
+}
+
+.upload-image{
+    aspect-ratio: 3/4;
+    height: 226px;
+    width: 169px;
+}
+
+.upload-image img{
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.75rem;
+    margin-left: 10px;
 }

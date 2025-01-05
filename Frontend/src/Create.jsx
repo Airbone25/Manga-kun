@@ -13,11 +13,11 @@ function Create(){
 
     const navigate = useNavigate()
 
-    const context = useContext(LoginContext)
+    const user = JSON.parse(localStorage.getItem('user'))
 
     function handleSubmit(e){
         e.preventDefault()
-        if(context.user == null){
+        if(user == null){
             navigate('/')
             return
         }
@@ -42,7 +42,7 @@ function Create(){
             const res = await fetch('http://localhost:3000/api',{
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${context.user.token}`
+                    'Authorization': `Bearer ${user.token}`
                 },
                 body: newManga
             })

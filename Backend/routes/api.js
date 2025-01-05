@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Manga = require('../models/Manga')
+const User = require('../models/User')
 const multer = require('multer')
 const requireAuth = require('../middlewares/requireAuth')
 
@@ -21,6 +22,17 @@ router.get('/',async (req,res)=>{
         res.json(mangas)
     }catch(error){
         console.log(error.message)
+    }
+})
+
+router.get('/profile',requireAuth,async (req,res)=>{
+    try{
+        const id = req.user.id
+        const mangas = await Manga.find({userId: id})
+        const user = await User.findById(id)
+        res.json({mangas,user})
+    }catch(error){
+        res.status(404).json({error: error.message})
     }
 })
 

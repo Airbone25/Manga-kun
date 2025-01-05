@@ -1,11 +1,10 @@
 # Manga-kun
-
-
+Welcome to Manga-kun, a place where creativity is appreciated. Manga-kun is a platform which provides peoople to show their creative minds and let know people around globe to know about their creations. Here, people can read comic books, novels, mangas, etc. And people who want to showcase their storywriting and drawing skills can upload their creations.
 
 ## Features
-
-
-## Installation
+- You can read anytime , anywhere. (no authentication required)
+- People can upload their creations also. (authentication required)
+- People will have their own profiles to review their creations.
 
 ### Prerequisites
 
@@ -66,6 +65,8 @@
 
 
 ## Usage
+- for people who like to read books and comics.
+- People can showcase their talent of writing, Drawing and storytelling skills.
 
 
 ## Contribution

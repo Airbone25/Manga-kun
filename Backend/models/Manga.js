@@ -24,6 +24,9 @@ const MangaSchema = new mongoose.Schema({
     license: {
         type: Boolean,
         required: true
+    },
+    userId: {
+        type: String
     }
 })
 

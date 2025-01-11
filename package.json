@@ -4,10 +4,10 @@
   "description": "Book Library and Author's Dream",
   "main": "index.js",
   "scripts": {
-    "buildFront": "cd frontend && npm install",
-    "buildBack": "cd backend && npm install",
-    "front": "cd frontend && npm run dev",
-    "back": "cd backend && npm run dev"
+    "buildFront": "cd Frontend && npm install",
+    "buildBack": "cd Backend && npm install",
+    "front": "cd Frontend && npm run dev",
+    "back": "cd Backend && npm run dev"
   },
   "repository": {
     "type": "git",

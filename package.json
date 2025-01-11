@@ -7,7 +7,7 @@
     "buildFront": "cd Frontend && npm install",
     "buildBack": "cd Backend && npm install",
     "front": "cd Frontend && npm run dev",
-    "back": "cd Backend && npm run dev"
+    "back": "cd Backend && npm run start"
   },
   "repository": {
     "type": "git",

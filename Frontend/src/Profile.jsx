@@ -14,7 +14,7 @@ function Profile(){
 
     async function getData(value){
         try{
-            const res = await fetch('http://localhost:3000/api/profile',{
+            const res = await fetch(`${import.meta.env.VITE_URL}/api/profile`,{
                 headers: {
                     'Authorization': `Bearer ${value}`
                 }

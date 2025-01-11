@@ -39,7 +39,7 @@ function Create(){
 
     async function postManga(newManga){
         try{
-            const res = await fetch('http://localhost:3000/api',{
+            const res = await fetch(`${import.meta.env.VITE_URL}/api`,{
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${user.token}`

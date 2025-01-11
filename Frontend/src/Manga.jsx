@@ -10,7 +10,7 @@ export default function Manga() {
 
     async function getManga(id){
         try{
-            const res = await fetch(`http://localhost:3000/api/${id}`)
+            const res = await fetch(`${import.meta.env.VITE_URL}/api/${id}`)
             if(!res.ok){
                 throw new Error('Failed to fetch manga')
             }

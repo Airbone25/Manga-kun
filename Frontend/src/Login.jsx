@@ -22,7 +22,7 @@ function Login(){
 
     async function postData(value){
         try{
-            const res = await fetch('http://localhost:3000/auth/login',{
+            const res = await fetch(`${import.meta.env.VITE_URL}/auth/login`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

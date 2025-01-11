@@ -1,0 +1,22 @@
+{
+  "name": "manga-kun",
+  "version": "1.0.0",
+  "description": "Book Library and Author's Dream",
+  "main": "index.js",
+  "scripts": {
+    "buildFront": "cd frontend && npm install",
+    "buildBack": "cd backend && npm install",
+    "front": "cd frontend && npm run dev",
+    "back": "cd backend && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Airbone25/Manga-kun.git"
+  },
+  "author": "Airbone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Airbone25/Manga-kun/issues"
+  },
+  "homepage": "https://github.com/Airbone25/Manga-kun#readme"
+}

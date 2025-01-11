@@ -9,7 +9,7 @@ function Home(){
     useEffect(()=>{getMangas()},[])
 
     async function getMangas(){
-        const res = await fetch('http://localhost:3000/api')
+        const res = await fetch(`${import.meta.env.VITE_URL}/api`)
         if(!res.ok){
             throw new Error('Failed to fetch mangas')
         }

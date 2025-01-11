@@ -6,7 +6,7 @@ function SearchBar(){
     const [result,setResult] = useState()
 
     async function fetchManga(value){
-        const res = await fetch('http://localhost:3000/api')
+        const res = await fetch(`${import.meta.env.VITE_URL}/api`)
         const data = await res.json()
         const resultData = data.filter(manga=>value && manga && manga.title && manga.title.toLowerCase().includes(value))
         setResult(resultData)

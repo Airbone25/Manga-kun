@@ -608,7 +608,7 @@ footer{
     border: 10px solid rgb(242,13,51);
     border-top: 10px solid white;
     border-radius: 50%;
-    animation: spin 2s ease-in-out 0s infinite normal;
+    animation: spin 1s ease-in-out 0s infinite normal;
 }
 
 @keyframes spin{

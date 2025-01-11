@@ -25,7 +25,7 @@ export default function Manga() {
         <div className="manga-profile">
             <div className="manga-container">
                 {manga && (<div className="manga-title-container">
-                    <div className="manga-cover" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%),url(http://localhost:3000/${manga.cover})`}}>
+                    <div className="manga-cover" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%),url(${import.meta.env.VITE_URL}/${manga.cover})`}}>
                         <h1>{manga.title}</h1>
                     </div>
                     <div className="manga-description">

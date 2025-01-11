@@ -1,10 +1,12 @@
 import Card from "./Card"
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import Loading from "./Loading"
 
 function Home(){
 
     const [manga, setManga] = useState()
+    const [isLoading,setIsLoading] = useState(true)
 
     useEffect(()=>{getMangas()},[])
 
@@ -15,10 +17,12 @@ function Home(){
         }
         const data = await res.json()
         setManga(data)
+        setIsLoading(false)
     }
 
     return(
         <div className="home">
+            {isLoading && <Loading/>}
             <div className="image-container">
             <div className="big-panel">
                 <h2>Read and Create your Manga at Manga-kun</h2>

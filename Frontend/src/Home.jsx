@@ -21,8 +21,7 @@ function Home(){
     }
 
     return(
-        <div className="home">
-            {isLoading && <Loading/>}
+        isLoading ? <Loading/> : (<div className="home">
             <div className="image-container">
             <div className="big-panel">
                 <h2>Read and Create your Manga at Manga-kun</h2>
@@ -44,7 +43,7 @@ function Home(){
             <div className="popular-mangas">
                 {manga && manga.map((manga,index)=><Link to={`/${manga._id}`}><Card key={index} img={`${import.meta.env.VITE_URL}/${manga.cover}`}/></Link>)}
             </div>
-        </div>
+        </div>)
     )
 }
 

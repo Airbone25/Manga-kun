@@ -7,7 +7,7 @@ const app = express()
 
 app.use(cors(
     {
-        origin: `https://manga-kun.vercel.app/`
+        origin: `https://manga-kun.vercel.app`
     }
 ))
 app.use(express.static('public'))

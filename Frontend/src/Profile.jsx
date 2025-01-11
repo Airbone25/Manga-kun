@@ -49,7 +49,7 @@ function Profile(){
                         <div key={index} className="upload-card">
                             <h4>{manga.title}</h4>
                             <div className="upload-image">
-                                <Link to={`/${manga._id}`}><img src={`http://localhost:3000/${manga.cover}`} alt="manga" /></Link>
+                                <Link to={`/${manga._id}`}><img src={`${import.meta.env.VITE_URL}/${manga.cover}`} alt="manga" /></Link>
                             </div>
                         </div>
                     ))}

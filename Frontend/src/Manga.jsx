@@ -38,7 +38,7 @@ export default function Manga() {
                     </div>
                     <div className="manga-content">
                         <h3>Book: </h3>
-                        <a target="_blank" href={`http://localhost:3000/${manga.manga}`}>{manga.title}</a>
+                        <a target="_blank" href={`${import.meta.env.VITE_URL}/${manga.manga}`}>{manga.title}</a>
                     </div>
                 </div>)}
             </div>

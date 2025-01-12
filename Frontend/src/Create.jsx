@@ -38,6 +38,7 @@ function Create(){
         setManga('')
         setCover('')
         setLicense(false)
+        setIsLoading(true)
     }
 
     async function postManga(newManga){
@@ -52,7 +53,6 @@ function Create(){
             if(!res.ok){
                 throw new Error('Failed to post manga')
             }
-            setIsLoading(true)
             navigate('/')
         }catch(error){
             console.error(error)

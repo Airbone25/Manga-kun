@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom"
 import testimg from "./assets/naruto-manga-cover.jpg"
 import { useEffect, useState } from "react"
+import Loading from "./Loading"
 
 function Profile(){
 
     const [username,setUsername] = useState()
     const [email,setEmail] = useState()
     const [mangas,setManga] = useState()
+    const [isLoading,setIsLoading] = useState(true)
 
     const user = JSON.parse(localStorage.getItem('user'))
 
@@ -23,12 +25,13 @@ function Profile(){
             setUsername(data.user.username)
             setEmail(data.user.email)
             setManga(data.mangas)
+            setIsLoading(false)
         }catch(error){
             console.log(error)
         }
     }
 
-    return(
+    return isLoading ? (<Loading/>) : (
         <div className="profile-container">
             <p id="username-tag">Welcome, {username}</p>
             <div className="personal-details">

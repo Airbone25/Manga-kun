@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { LoginContext } from './contexts/LoginContext'
+import Loading from './Loading'
 
 function Create(){
 
@@ -10,6 +11,8 @@ function Create(){
     const [manga, setManga] = useState('')
     const [cover, setCover] = useState('')
     const [license, setLicense] = useState(false)
+
+    const [isLoading,setIsLoading] = useState(false)
 
     const navigate = useNavigate()
 
@@ -49,13 +52,14 @@ function Create(){
             if(!res.ok){
                 throw new Error('Failed to post manga')
             }
+            setIsLoading(true)
             navigate('/')
         }catch(error){
             console.error(error)
         }
     }
 
-    return(
+    return isLoading ? (<Loading/>) : (
         <div className="create-manga-page">
             <div className="create_manga">
                 <h2>Create New Manga</h2>

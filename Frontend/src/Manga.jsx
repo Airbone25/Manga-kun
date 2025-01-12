@@ -1,10 +1,12 @@
 import { useParams } from "react-router"
 import { useState,useEffect } from "react"
+import Loading from "./Loading"
 
 export default function Manga() {
     const {id} = useParams()
 
     const [manga,setManga] = useState()
+    const [isLoading,setIsLoading] = useState(true)
 
     useEffect(()=>{getManga(id)},[])
 
@@ -16,12 +18,13 @@ export default function Manga() {
             }
             const data = await res.json()
             setManga(data)
+            setIsLoading(false)
         }catch(error){
             console.error(error)
         }
     }
 
-    return(
+    return isLoading ? (<Loading/>) : (
         <div className="manga-profile">
             <div className="manga-container">
                 {manga && (<div className="manga-title-container">

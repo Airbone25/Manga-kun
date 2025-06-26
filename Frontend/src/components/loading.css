@@ -1,0 +1,31 @@
+.loading-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #15002b, #290057, #5b247a);
+  color: #ffaad5;
+  font-family: 'Lexend', sans-serif;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  border-top: 8px solid #ff3399;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-wrapper p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}

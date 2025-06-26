@@ -5,19 +5,21 @@ const cors = require('cors')
 
 const app = express()
 
-whitelist = ['http://localhost:5173']
+// whitelist = ['http://localhost:5173']
 
-let corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
+// let corsOptions = {
+//   origin: function (origin, callback) {
+//     console.log(`Origin ${origin}`)
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
+app.use(cors())
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))

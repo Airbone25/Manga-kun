@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+.navbar {
+  padding: 1rem 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(30, 10, 50, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  margin: 1rem 4%;
+  box-shadow: 0 4px 16px rgba(255, 77, 166, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo h2 {
+  font-family: 'Lexend', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #ff4da6;
+  cursor: pointer;
+  user-select: none;
+  letter-spacing: 1.2px;
+  transition: color 0.3s ease;
+}
+
+.logo h2:hover {
+  color: #ff77b3;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Styling the <p> links inside .links */
+.links p {
+  background-color: white;
+  color: #290057;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 0, 119, 0.4);
+}
+
+.links p:hover {
+  background-color: #ff4da6;
+  color: white;
+  box-shadow: 0 0 12px rgba(255, 77, 166, 0.7);
+}
+
+/* Special button styles */
+#profile-link {
+  background-color: #ff77b3;
+  color: #15002b;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(255, 119, 179, 0.7);
+}
+
+#profile-link:hover {
+  background-color: #ff4da6;
+  color: white;
+}
+
+#create {
+  background: linear-gradient(135deg, #ff4da6, #ff0077);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(255, 0, 119, 0.5);
+}
+
+#create:hover {
+  background: linear-gradient(135deg, #ff6fb4, #ff3399);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 3%;
+    margin: 1rem 3%;
+  }
+
+  .links {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .links p {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}

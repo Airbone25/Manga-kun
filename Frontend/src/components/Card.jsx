@@ -1,3 +1,4 @@
+import "./card.css"
 
 function Card({img,key}){
     return(

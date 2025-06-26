@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import SearchBar from "./SearchBar"
 import { useContext, useState } from "react"
-import { LoginContext } from "./contexts/LoginContext"
+import { LoginContext } from "../contexts/LoginContext"
+import "./navbar.css"
 
 function NavBar(){
 
@@ -15,7 +16,7 @@ function NavBar(){
     return(
         <div className="navbar">
             <div className="logo">
-                <Link style={{"textDecoration": "none"}} to={'/'}><h2 style={{"color": "black"}}>Manga-kun</h2></Link>
+                <Link style={{"textDecoration": "none"}} to={'/'}><h2>Manga-kun</h2></Link>
             </div>
             <div className="links">
                 <SearchBar/>

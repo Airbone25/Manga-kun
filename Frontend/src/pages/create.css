@@ -1,0 +1,173 @@
+.create-manga-page {
+  background: linear-gradient(145deg, #15002b, #290057, #5b247a);
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.create_manga {
+  background-color: rgba(30, 30, 30, 0.95);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 25px rgba(255, 0, 128, 0.2);
+}
+
+.create_manga h2 {
+  font-size: 2rem;
+  color: #ffaad5;
+  margin-bottom: 0.75rem;
+}
+
+.create_manga p {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.create_manga form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.create_manga form h4 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #ddd;
+  margin-bottom: 0.3rem;
+}
+
+.create_manga input[type="text"],
+.create_manga textarea,
+#create_manga input[type="file"] {
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #333;
+  transition: border 0.3s ease;
+  resize: none;
+}
+
+.create_manga input:focus,
+.create_manga textarea:focus {
+  border-color: #ff77b3;
+  outline: none;
+}
+
+/* Style labels for file inputs */
+#create_manga #manga-tag,
+#create_manga #manga-cover-tag {
+  font-size: 1.05rem;
+  color: #ddd;
+  margin-bottom: 0.4rem;
+}
+
+/* FILE INPUTS */
+#create_manga input[type="file"],
+.create_manga input[type="file"] {
+  position: relative;
+  padding: 0.7rem 1rem;
+  background-color: #1f1f1f;
+  color: #ccc;
+  border: 1px solid #444;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+#create_manga input[type="file"]::file-selector-button,
+.create_manga input[type="file"]::file-selector-button {
+  background: linear-gradient(135deg, #ff4da6, #ff0077);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+#create_manga input[type="file"]::file-selector-button:hover,
+.create_manga input[type="file"]::file-selector-button:hover {
+  background: linear-gradient(135deg, #ff6fb4, #ff3399);
+}
+
+#create_manga input[type="file"]:focus,
+.create_manga input[type="file"]:focus {
+  outline: none;
+  border-color: #ff77b3;
+  background-color: #292929;
+}
+
+
+#lic-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: -1rem;
+}
+
+#lic-tag {
+  font-size: 0.95rem;
+  color: #bbb;
+  margin: 0;
+}
+
+#submit {
+  background: linear-gradient(135deg, #ff4da6, #ff0077);
+  color: white;
+  font-weight: bold;
+  padding: 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+#submit:hover {
+  background: linear-gradient(135deg, #ff6fb4, #ff3399);
+  transform: scale(1.02);
+}
+
+#cancel-manga {
+  text-align: center;
+  margin-top: 1rem;
+  display: inline-block;
+  color: #aaa;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+#cancel-manga:hover {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .create_manga {
+    padding: 1.5rem;
+  }
+
+  .create_manga h2 {
+    font-size: 1.5rem;
+  }
+
+  .create_manga p,
+  #lic-tag {
+    font-size: 0.85rem;
+  }
+
+  #submit {
+    font-size: 0.95rem;
+  }
+}

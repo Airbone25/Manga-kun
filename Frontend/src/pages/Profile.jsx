@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
-import testimg from "./assets/naruto-manga-cover.jpg"
+import testimg from "../assets/naruto-manga-cover.jpg"
 import { useEffect, useState } from "react"
-import Loading from "./Loading"
+import Loading from "../components/Loading"
+import "./profile.css"
 
 function Profile(){
 

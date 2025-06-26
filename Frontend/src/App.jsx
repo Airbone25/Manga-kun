@@ -1,14 +1,15 @@
-import Home from "./Home";
-import NavBar from "./NavBar";
-import Create from "./Create";
+import Home from "./pages/Home"
+import NavBar from "./components/NavBar";
+import Create from "./pages/Create";
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Manga from "./Manga";
-import Login from "./Login";
-import Footer from "./Footer";
-import Signup from "./Signup";
+import Manga from "./pages/Manga";
+import Login from "./pages/Login";
+import Footer from "./components/Footer";
+import Signup from "./pages/Signup";
 import { useContext } from "react";
 import { LoginContext } from "./contexts/LoginContext";
-import Profile from "./Profile";
+import Profile from "./pages/Profile";
+import PDFViewer from "./components/PDFViewer";
 
 function Message() {
   return (
@@ -29,7 +30,7 @@ function Message() {
 
 function App() {
   const context = useContext(LoginContext);
-  const maintenanceMode = true;
+  const maintenanceMode = false;
 
   if (maintenanceMode) {
     return <Message />;
@@ -45,6 +46,7 @@ function App() {
         <Route path="/profile" element={context.user ? <Profile /> : <Navigate to="/" />} />
         <Route path="/login" element={!context.user ? <Login /> : <Navigate to="/" />} />
         <Route path="/signup" element={!context.user ? <Signup /> : <Navigate to="/" />} />
+        <Route path="/view-chapter/:pdf" element={<PDFViewer/>}/>
       </Routes>
       <div className="footer">
         <Footer />

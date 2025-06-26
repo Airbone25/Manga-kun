@@ -1,6 +1,8 @@
 import { useParams } from "react-router"
 import { useState,useEffect } from "react"
-import Loading from "./Loading"
+import Loading from "../components/Loading"
+import "./manga.css"
+import { Link } from "react-router-dom"
 
 export default function Manga() {
     const {id} = useParams()
@@ -41,7 +43,7 @@ export default function Manga() {
                     </div>
                     <div className="manga-content">
                         <h3>Book: </h3>
-                        <a target="_blank" href={`${import.meta.env.VITE_URL}/${manga.manga}`}>{manga.title}</a>
+                        <Link to={`/view-chapter/${manga.manga}`}>{manga.title}</Link>
                     </div>
                 </div>)}
             </div>

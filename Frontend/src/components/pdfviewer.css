@@ -1,0 +1,61 @@
+.pdf-viewer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(145deg, #15002b, #290057, #5b247a);
+  min-height: 100vh;
+  color: white;
+}
+
+.react-pdf__Document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.react-pdf__Page {
+  box-shadow: 0 0 25px rgba(255, 0, 128, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.viewer-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.viewer-controls button {
+  background: linear-gradient(135deg, #ff4da6, #ff0077);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.viewer-controls button:disabled {
+  background: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+}
+
+.viewer-controls button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ff77b3, #ff3399);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .react-pdf__Page {
+    width: 100% !important;
+  }
+
+  .viewer-controls button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

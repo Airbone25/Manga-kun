@@ -1,32 +1,29 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { LoginContext } from "./contexts/LoginContext"
+import { LoginContext } from "../contexts/LoginContext"
+import "./login.css"
 
+function Login(){
 
-function Signup(){
-
-    const [username,setUsername] = useState('')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [error,setError] = useState('')
 
     const context = useContext(LoginContext)
 
-    const navigate = useNavigate()
-
     function handleSubmit(e){
         e.preventDefault()
-        const data = {username,email,password}
-        console.log(data)
+        const data = {email,password}
         postData(data)
-        setUsername('')
         setEmail('')
         setPassword('')
     }
 
+    const navigate = useNavigate()
+
     async function postData(value){
         try{
-            const res = await fetch(`${import.meta.env.VITE_URL}/auth/signup`,{
+            const res = await fetch(`${import.meta.env.VITE_URL}/auth/login`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -35,9 +32,6 @@ function Signup(){
             })
             const data = await res.json()
             if(!res.ok){
-                throw new Error("Could Not Fetch")
-            }
-            if(data.error){
                 setError(data.error)
             }
             if(res.ok){
@@ -54,21 +48,18 @@ function Signup(){
         <div className="login">
             <div className="login-container">
                 <div className="login-heading">
-                    <h1>SignUp</h1>
-                    <small>Create your account at Manga-kun</small>
+                    <h1>Login</h1>
+                    <small>Login to your account</small>
                 </div>
                 <div className="login-form">
                     <form onSubmit={handleSubmit}>
-                        <h4 id="email-tag">Username: </h4>
-                        <input type="text" id="email" name="username" placeholder="Enter Your Username" value={username} onChange={e=>setUsername(e.target.value)} autoComplete="off" required/>
-
                         <h4 id="email-tag">Email: </h4>
                         <input type="email" id="email" name="email" placeholder="Enter Your Email" value={email} onChange={e=>setEmail(e.target.value)} autoComplete="off" required/>
 
                         <h4 id="email-tag">Password: </h4>
                         <input type="password" id="email" name="password" placeholder="Enter Your Password" value={password} onChange={e=>setPassword(e.target.value)} autoComplete="off" required/>
 
-                        <input type="submit" value="Signup" id="submit"/>
+                        <input type="submit" value="Login" id="submit"/>
 
                         {error && <h4 id="error-tag">{error}</h4>}
                     </form>
@@ -78,4 +69,4 @@ function Signup(){
     )
 }
 
-export default Signup
+export default Login

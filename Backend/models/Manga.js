@@ -13,10 +13,16 @@ const MangaSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    manga: {
-        type: String,
-        required: true
-    },
+    manga: [
+        {
+            title: String,
+            pdf: String,
+            uploadedAt: {
+                type: Date,
+                default: Date.now
+            }
+        }
+    ],
     cover: {
         type: String,
         required: true

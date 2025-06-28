@@ -10,6 +10,7 @@ import { useContext } from "react";
 import { LoginContext } from "./contexts/LoginContext";
 import Profile from "./pages/Profile";
 import PDFViewer from "./components/PDFViewer";
+import AddChapter from "./pages/AddChapter";
 
 function Message() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/login" element={!context.user ? <Login /> : <Navigate to="/" />} />
         <Route path="/signup" element={!context.user ? <Signup /> : <Navigate to="/" />} />
         <Route path="/view-chapter/:pdf" element={<PDFViewer/>}/>
+        <Route path="/add-chapter/:id" element={<AddChapter/>}/>
       </Routes>
       <div className="footer">
         <Footer />

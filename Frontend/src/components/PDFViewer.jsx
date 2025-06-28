@@ -11,6 +11,7 @@ function PDFViewer() {
   const { pdf } = useParams();
 
   const fileurl = `http://localhost:3000/${pdf}`;
+  // const fileurl = pdf
 
   const [numPages, setNumPages] = useState();
   const [pageNumber, setPageNumber] = useState(1);

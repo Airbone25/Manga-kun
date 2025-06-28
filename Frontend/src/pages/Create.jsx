@@ -29,7 +29,7 @@ function Create(){
         newManga.append('title',title)
         newManga.append('description',description)
         newManga.append('author',author)
-        newManga.append('manga',manga)
+        newManga.append('pdf',manga)
         newManga.append('cover',cover)
         newManga.append('license',license)
         postManga(newManga)
@@ -77,7 +77,7 @@ function Create(){
                     <input type="text" id="title" name="author" placeholder="Enter author's name" value={author} onChange={e=>setAuthor(e.target.value)} autoComplete="off" required/>
 
                     <h4 id="manga-tag">Add Manga: </h4>
-                    <input type="file" name="manga" id="manga" placeholder="Paste PDF url" accept='.pdf' onChange={e=>setManga(e.target.files[0])} autoComplete="off" required/>
+                    <input type="file" name="pdf" id="pdf" placeholder="Paste PDF url" accept='.pdf' onChange={e=>setManga(e.target.files[0])} autoComplete="off" required/>
 
                     <h4 id="manga-cover-tag">Upload Cover: </h4>
                     <input type="file" name="cover" id="cover" accept="image/*" onChange={e=>setCover(e.target.files[0])} required/>

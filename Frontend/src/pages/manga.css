@@ -77,6 +77,17 @@
   background: linear-gradient(135deg, #ff77b3, #ff3399);
 }
 
+.add-chapter-btn a{
+  padding: 0;
+  background: none;
+  text-decoration: underline;
+}
+
+.add-chapter-btn a:hover{
+  background: none;
+  text-underline-position: above;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .manga-cover {

@@ -4,6 +4,7 @@ const Manga = require('../models/Manga')
 const User = require('../models/User')
 const multer = require('multer')
 const requireAuth = require('../middlewares/requireAuth')
+const { imageStorage,pdfStorage } = require('../utils/cloudinary')
 
 const storage = multer.diskStorage({
     destination: (req,res,cb)=>{
@@ -15,6 +16,8 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({storage})
+const imageUpload = multer({storage: imageStorage})
+const pdfUpload = multer({storage: pdfStorage})
 
 router.get('/',async (req,res)=>{
     try{
@@ -45,12 +48,15 @@ router.get('/:id',async (req,res)=>{
     }
 })
 
-router.post('/',requireAuth,upload.fields([{name: 'manga',maxCount: 1},{name: 'cover',maxCount: 1}]),async (req,res)=>{
+router.post('/',requireAuth,upload.fields([{name: 'pdf',maxCount: 1},{name: 'cover',maxCount: 1}]),async (req,res)=>{
         const manga = new Manga({
             title: req.body.title,
             description: req.body.description,
             author: req.body.author,
-            manga: req.files['manga'][0].filename,
+            manga: {
+                title: req.body.title || "Chapter 1",
+                pdf: req.files['pdf'][0].filename
+            },
             cover: req.files['cover'][0].filename,
             license: req.body.license,
             userId: req.user.id
@@ -60,6 +66,42 @@ router.post('/',requireAuth,upload.fields([{name: 'manga',maxCount: 1},{name: 'c
         res.status(201).json(newManga)
     }catch(error){
         console.log(error.message)
+    }
+})
+
+router.patch('/new-chapter/:id', requireAuth, pdfUpload.single('pdf'), async (req, res) => {
+    const animeId = req.params.id;
+
+    try {
+        const anime = await Manga.findById(animeId);
+        if (!anime) {
+            return res.json({ error: "Anime Not Found" });
+        }
+
+        if (anime.userId != req.user.id) {
+            return res.json({ error: "This user is not the author" });
+        }
+
+        if (!req.file) {
+            return res.json({ error: "No PDF file uploaded" });
+        }
+
+        console.log("Request file: "+JSON.stringify(req.file))
+
+        const newChapter = {
+            title: req.body.title,
+            pdf: req.file.secure_url
+        };
+
+        console.log("Uploaded Chapter:", JSON.stringify(newChapter, null, 2));
+
+        anime.manga.push(newChapter);
+        await anime.save();
+
+        res.json({ message: "Manga Updated", chapter: newChapter });
+    } catch (error) {
+        console.error(error);
+        res.json({ error: error.message });
     }
 })
 

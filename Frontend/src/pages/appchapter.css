@@ -1,0 +1,65 @@
+.add-chapter-page {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(145deg, #15002b, #290057, #5b247a);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-chapter-form {
+  background-color: rgba(30, 30, 30, 0.95);
+  padding: 2rem 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 25px rgba(255, 0, 128, 0.25);
+  max-width: 500px;
+  width: 100%;
+}
+
+.add-chapter-form h4 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #ffaad5;
+}
+
+.add-chapter-form input[type="text"],
+.add-chapter-form input[type="file"] {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s border;
+}
+
+.add-chapter-form input:focus {
+  border-color: #ff77b3;
+}
+
+.add-chapter-form button {
+  margin-top: 1.8rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #ff4da6, #ff0077);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.add-chapter-form button:hover {
+  background: linear-gradient(135deg, #ff77b3, #ff3399);
+}
+
+.add-chapter-form p {
+  margin-top: 1rem;
+  color: #ff7070;
+  font-size: 0.95rem;
+}
